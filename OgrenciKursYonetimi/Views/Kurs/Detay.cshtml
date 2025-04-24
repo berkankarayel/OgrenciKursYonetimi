@@ -1,0 +1,21 @@
+﻿@model OgrenciKursYonetimi.Web.Data.Kurs
+
+<h2>Kurs Güncelle</h2>
+
+<div class="card">
+    <div class="card-body">
+        <form asp-action="Detay" method="post">
+            <input type="hidden" asp-for="KursId" />
+
+            <div class="mb-3">
+                <label asp-for="Baslik" class="form-label"></label>
+                <input asp-for="Baslik" class="form-control" />
+                <span asp-validation-for="Baslik" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-success">Güncelle</button>
+            <a asp-action="Index" class="btn btn-secondary">İptal</a>
+        </form>
+    </div>
+</div>
+

@@ -1,0 +1,56 @@
+﻿@model OgrenciKursYonetimi.Web.Data.Ogrenci
+
+<h2>Öğrenci Bilgilerini Güncelle</h2>
+
+<div class="row">
+    <!-- Sol: Güncelleme Formu -->
+    <div class="col-md-6">
+        <form asp-action="Detay" method="post">
+            <input type="hidden" asp-for="OgrenciId" />
+
+            <div class="mb-3">
+                <label asp-for="OgrenciAd" class="form-label"></label>
+                <input asp-for="OgrenciAd" class="form-control" />
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="OgrenciSoyad" class="form-label"></label>
+                <input asp-for="OgrenciSoyad" class="form-control" />
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Eposta" class="form-label"></label>
+                <input asp-for="Eposta" class="form-control" />
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Telefon" class="form-label"></label>
+                <input asp-for="Telefon" class="form-control" />
+            </div>
+
+            <button type="submit" class="btn btn-success">Güncelle</button>
+            <a asp-action="Index" class="btn btn-secondary">İptal</a>
+        </form>
+    </div>
+
+    <!-- Sağ: Aldığı Kurslar -->
+    <div class="col-md-6">
+        <h5>Aldığı Kurslar</h5>
+        @if (Model.KursKayitlari != null && Model.KursKayitlari.Any())
+        {
+            <ul class="list-group">
+                @foreach (var kayit in Model.KursKayitlari)
+                {
+                    <li class="list-group-item">
+                        @kayit.Kurs?.Baslik
+                    </li>
+                }
+            </ul>
+        }
+        else
+        {
+            <p class="text-muted">Kursa kayıtlı değil.</p>
+        }
+    </div>
+</div>
+

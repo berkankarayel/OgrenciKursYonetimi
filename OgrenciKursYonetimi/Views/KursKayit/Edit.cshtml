@@ -1,0 +1,24 @@
+﻿@model OgrenciKursYonetimi.Web.Data.KursKayit
+
+<h2>Kurs Kaydı Güncelle</h2>
+
+<div class="card">
+    <div class="card-body">
+        <form asp-action="Edit" method="post">
+            <input type="hidden" asp-for="KayitId" />
+
+            <div class="mb-3">
+                <label class="form-label">Öğrenci</label>
+                <select asp-for="OgrenciId" class="form-select" asp-items="ViewBag.Ogrenciler"></select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Kurs</label>
+                <select asp-for="KursId" class="form-select" asp-items="ViewBag.Kurslar"></select>
+            </div>
+
+            <button type="submit" class="btn btn-success">Güncelle</button>
+            <a asp-action="Index" class="btn btn-secondary">İptal</a>
+        </form>
+    </div>
+</div>
